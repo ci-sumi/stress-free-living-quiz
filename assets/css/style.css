@@ -57,6 +57,9 @@ body{
     background-color: black;
     color: white;
     }
+.btn:disabled{
+    cursor: no-drop
+}
 /* Add styling to next button */
     #btn-next {
             background-color: #04AA6D;
