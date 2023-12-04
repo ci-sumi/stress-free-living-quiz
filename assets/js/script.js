@@ -1,3 +1,4 @@
+// Add  questions
 const questions = [
     {
         question: "What is the primary hormone released during the body's fight or flight response to stress?",
@@ -90,4 +91,8 @@ const questions = [
         ]
     },
 ];
+// Define variables for quiz elements in JavaScript
 
+const questionElement = document.getElementById("question");
+const answerElement = document.getElementById("answer-buttons");
+const nextButton = document.getElementById("btn-next");
