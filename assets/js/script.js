@@ -123,6 +123,12 @@ function showQuestion(){
         button.classList.add("btn");
         button.addEventListener("click", () => selectAnswer(answer));
         answerElement.appendChild(button);
+        // Add correct answer indication and click event listener to answer
+        if(answer.correct){
+            button.dataset.correct = answer.correct;
+            
+        }
+        button.addEventListener("click",selectAnswer);
 
     });
 
