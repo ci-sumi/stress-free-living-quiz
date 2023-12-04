@@ -70,5 +70,10 @@ body{
             /* Center horizontally by setting left and right margins to auto */
             cursor: pointer;
         }
-
-      
+        /* Add background color to correct and wrong ansers */
+      .correct{
+        background: green;
+      }
+      .incorrect{
+        background: red;
+      }
