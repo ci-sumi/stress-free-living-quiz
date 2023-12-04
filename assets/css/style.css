@@ -1,3 +1,4 @@
+/* Apply basic CSS reset */
 *
  {
   margin: 0;
@@ -5,6 +6,7 @@
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
 }
+/* sets the background color for the body element */
 body{
     background:#160F29
 }
