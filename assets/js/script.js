@@ -97,7 +97,17 @@ const questionElement = document.getElementById("question");
 const answerElement = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("btn-next");
 
-//  Initialize quiz variables and set initial button text;
+//  Initialize quiz variables
 let currentQuestionIndex =0;
-score =0;
-nextButton.innerHTML="Next";
+let score =0;
+
+// Implement startQuiz function to reset variables and display the first question
+function startQuiz(){
+    currentQuestionIndex = 0;
+    score = 0;
+    nextButton.innerHTML = "Next";
+    showQuestion();
+
+}
+
+
