@@ -98,25 +98,25 @@ const answerElement = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("btn-next");
 
 //  Initialize quiz variables
-let currentQuestionIndex =0;
-let score =0;
+let currentQuestionIndex = 0;
+let score = 0;
 
 // Implement startQuiz function to reset variables and display the first question
-function startQuiz(){
+function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
-    showQuestion(); 
+    showQuestion();
 
 }
 // Implement showQuestion function to display current quiz question
-function showQuestion(){
+function showQuestion() {
     resetState();
-    let currentQuestion= questions[currentQuestionIndex];
-    let questionNo= currentQuestionIndex + 1;
+    let currentQuestion = questions[currentQuestionIndex];
+    let questionNo = currentQuestionIndex + 1;
     questionElement.innerHTML = questionNo + "." + currentQuestion.question;
 
-//   Dynamically create answer buttons in the quiz UI
+    //   Dynamically create answer buttons in the quiz UI
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
         button.innerHTML = answer.text;
@@ -124,11 +124,11 @@ function showQuestion(){
         button.addEventListener("click", () => selectAnswer(answer));
         answerElement.appendChild(button);
         // Add correct answer indication and click event listener to answer
-        if(answer.correct){
+        if (answer.correct) {
             button.dataset.correct = answer.correct;
-            
+
         }
-        button.addEventListener("click",selectAnswer);
+        button.addEventListener("click", selectAnswer);
 
     });
 
@@ -136,22 +136,33 @@ function showQuestion(){
 
 }
 // Add resetState function to hide next button and clear answer options
-function resetState(){
-    nextButton.style.display = "none"
-    while(answerElement.firstChild){
+function resetState() {
+    nextButton.style.display = "none";
+    while (answerElement.firstChild) {
         answerElement.removeChild(answerElement.firstChild);
     }
 }
 //Implement answer highlighting logic based on user selection
-function    selectAnswer(e){
+function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
-    if(isCorrect){
+    if (isCorrect) {
         selectedBtn.classList.add("correct");
-    }else{
-        selectedBtn.classList.add("incorrect")
+    } else {
+        selectedBtn.classList.add("incorrect");
     }
-    }
+
+    //  Disable answer buttons and highlight correct answers on user selection
+    Array.from(answerElement.children).forEach(Button => {
+        if (Button.dataset.correct === "true") {
+            Button.classList.add("correct");
+        }
+        Button.disabled = true;
+    });
+    nextButton.style.display = "block";
+}
+
+
 
 startQuiz();
 
