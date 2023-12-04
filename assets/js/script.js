@@ -106,8 +106,16 @@ function startQuiz(){
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
-    showQuestion();
+    showQuestion(); 
 
 }
+// Implement showQuestion function to display current quiz question
+function showQuestion(){
+    let currentQuestion= questions[currentQuestionIndex];
+    let questionNo= currentQuestionIndex + 1;
+    questionElement.innerHTML = questionNo + "." + currentQuestion
 
+
+
+}
 
