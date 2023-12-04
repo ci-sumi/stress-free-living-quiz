@@ -96,3 +96,8 @@ const questions = [
 const questionElement = document.getElementById("question");
 const answerElement = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("btn-next");
+
+//  Initialize quiz variables and set initial button text;
+let currentQuestionIndex =0;
+score =0;
+nextButton.innerHTML="Next";
