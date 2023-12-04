@@ -111,6 +111,7 @@ function startQuiz(){
 }
 // Implement showQuestion function to display current quiz question
 function showQuestion(){
+    resetState();
     let currentQuestion= questions[currentQuestionIndex];
     let questionNo= currentQuestionIndex + 1;
     questionElement.innerHTML = questionNo + "." + currentQuestion.question;
@@ -127,6 +128,13 @@ function showQuestion(){
 
 
 
+}
+// Add resetState function to hide next button and clear answer options
+function resetState(){
+    nextButton.style.display = "none"
+    while(answerElement.firstChild){
+        answerElement.removeChild(answerElement.firstChild);
+    }
 }
 startQuiz();
 
