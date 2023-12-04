@@ -38,3 +38,13 @@ body{
     color:black;
     font-weight: 600;
 }
+.btn {
+    background-color: white;
+    color: black;
+    font-weight: 500;
+    width: 100%;
+    border: 3px double black;
+    /* Adjust the width and color as needed */
+    padding: 10px;
+    margin: 10px 0;
+}
