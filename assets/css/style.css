@@ -38,6 +38,7 @@ body{
     color:black;
     font-weight: 600;
 }
+/* Addd styling for .btn class */
 .btn {
     background-color: white;
     color: black;
@@ -47,4 +48,5 @@ body{
     /* Adjust the width and color as needed */
     padding: 10px;
     margin: 10px 0;
+    text-align: left;
 }
