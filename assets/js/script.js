@@ -156,12 +156,20 @@ function selectAnswer(e) {
     Array.from(answerElement.children).forEach(Button => {
         if (Button.dataset.correct === "true") {
             Button.classList.add("correct");
+            score++;
         }
         Button.disabled = true;
     });
     nextButton.style.display = "block";
 }
-
+// add event listener for next button
+nextButton.addEventListener("click",()=>{
+    if(currentQuestionIndex<questions.length){
+        handleNextButton();
+    }else{
+    startQuiz();
+    }
+});
 
 
 startQuiz();
