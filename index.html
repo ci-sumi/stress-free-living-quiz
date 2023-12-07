@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <header>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="assets/css/style.css" rel="stylesheet" />
     <title>Quiz App-Stress-Free-Living</title>
-  </head>
+  </header>
 
   <body>
     <!-- Add Stress-Free-Living Quiz section to .app container -->
+    <main>
     <div class="app">
       <h3>Stress-Free-Living Quiz</h3>
+    <div id="timer">Time: <span id="time-display">00:00</span></div>
       <div class="quiz">
         <h4 id ="question">Here you Go!</h4>
         <div id="answer-buttons">
@@ -24,7 +26,9 @@
         <button id ="btn-next">Next</button>
       </div>
     </div>
-
+    </main>
+   <footer>
     <script src="assets/js/script.js"></script>
+    </footer>
   </body>
 </html>

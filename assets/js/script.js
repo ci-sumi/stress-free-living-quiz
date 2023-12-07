@@ -96,10 +96,12 @@ const questions = [
 const questionElement = document.getElementById("question");
 const answerElement = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("btn-next");
+const timeDisplay = document.getElementById("time-display");
 
 //  Initialize quiz variables
 let currentQuestionIndex = 0;
 let score = 0;
+
 
 // Implement startQuiz function to reset variables and display the first question
 function startQuiz() {
@@ -148,6 +150,7 @@ function selectAnswer(e) {
     const isCorrect = selectedBtn.dataset.correct === "true";
     if (isCorrect) {
         selectedBtn.classList.add("correct");
+        score++;
     } else {
         selectedBtn.classList.add("incorrect");
     }
@@ -156,10 +159,16 @@ function selectAnswer(e) {
     Array.from(answerElement.children).forEach(Button => {
         if (Button.dataset.correct === "true") {
             Button.classList.add("correct");
-            score++;
+           
         }
         Button.disabled = true;
     });
+    nextButton.style.display = "block";
+}
+function showScore() {
+    resetState();
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+    nextButton.innerHTML = "Play Again";
     nextButton.style.display = "block";
 }
 // implement handleNextButton function
@@ -185,4 +194,39 @@ nextButton.addEventListener("click",()=>{
 });
 
 startQuiz();
+
+
+// Your existing JavaScript code
+
+// Timer logic
+let timer;
+let seconds = 0;
+let minutes = 0;
+
+// Function to start the timer
+function startTimer() {
+    timer = setInterval(updateTimer, 1000);
+}
+
+// Function to update the timer
+function updateTimer() {
+    seconds++;
+    if (seconds === 60) {
+        seconds = 0;
+        minutes++;
+    }
+
+    const formattedTime = `${padZero(minutes)}:${padZero(seconds)}`;
+    document.getElementById('time-display').textContent = formattedTime;
+}
+
+// Function to pad zero to single-digit values
+function padZero(value) {
+    return value < 10 ? `0${value}` : value;
+}
+
+// Call startTimer() when you want to start the timer, e.g., at the beginning of the quiz
+startTimer();
+
+
 
