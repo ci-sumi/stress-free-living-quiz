@@ -162,6 +162,19 @@ function selectAnswer(e) {
     });
     nextButton.style.display = "block";
 }
+// implement handleNextButton function
+function handleNextButton(){
+    currentQuestionIndex++;
+    if(currentQuestionIndex<questions.length){
+        showQuestion();
+
+    }
+    else{
+    showScore();
+        }
+    }
+
+
 // add event listener for next button
 nextButton.addEventListener("click",()=>{
     if(currentQuestionIndex<questions.length){
@@ -170,7 +183,6 @@ nextButton.addEventListener("click",()=>{
     startQuiz();
     }
 });
-
 
 startQuiz();
 
